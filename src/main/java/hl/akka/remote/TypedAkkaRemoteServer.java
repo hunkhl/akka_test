@@ -10,20 +10,21 @@ import akka.japi.Creator;
 import akka.serialization.Serialization;
 import akka.serialization.SerializationExtension;
 
-public class RemoteServer {
+/**
+ * 测试akka 网络通讯服务器端
+ * @author Administrator
+ *
+ */
+public class TypedAkkaRemoteServer {
 	
 	
 	public static void main(String[] args) {
 		final ActorSystem system = ActorSystem.create("CalcSystem", 
 				ConfigFactory.load("calaculator-server"));
 		
-		Serialization serialization = SerializationExtension.get(system);
+//		Serialization serialization = SerializationExtension.get(system);
 		
-		System.out.println(serialization.findSerializerFor("xxx"));
-		
-		
-		
-		
+//		System.out.println(serialization.findSerializerFor("xxx"));
 		
 		ICalculator c = TypedActor.get(system).typedActorOf(new TypedProps<ICalculator>(ICalculator.class, new Creator<ICalculator>() {
 			private static final long serialVersionUID = 1L;

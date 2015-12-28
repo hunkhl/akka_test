@@ -11,7 +11,12 @@ import akka.actor.TypedProps;
 import akka.dispatch.OnComplete;
 import scala.concurrent.Future;
 
-public class RemoteClient {
+/**
+ * 测试akka 网络通讯客户端
+ * @author Administrator
+ *
+ */
+public class TypedAkkaRemoteClient {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void start() {
 		ActorSystem system = ActorSystem.create("LookupSystem", ConfigFactory.load("calaculator-client"));
